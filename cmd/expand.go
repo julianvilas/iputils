@@ -36,5 +36,5 @@ var expandCmd = &cobra.Command{
 func init() {
 	RootCmd.AddCommand(expandCmd)
 
-	expandCmd.Flags().BoolVarP(&removeNetAndBroadcast, "remNetAndBroadcast", "r", false, "do not print the network and broadcast addresses")
+	expandCmd.Flags().BoolVarP(&removeNetAndBroadcast, "rm", "r", false, "do not print the network and broadcast addresses")
 }

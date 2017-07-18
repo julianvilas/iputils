@@ -151,6 +151,15 @@ var tcExpandCIDR = []struct {
 		},
 	},
 	{
+		name:                  "positiveRemoveNetAndBroadcast32",
+		network:               "192.168.0.0/32",
+		removeNetAndBroadcast: true,
+		want: wantExpandCIDR{
+			ips: []string{"192.168.0.0"},
+			err: false,
+		},
+	},
+	{
 		name:    "wrongCIDR",
 		network: "192.168.0.0",
 		want: wantExpandCIDR{

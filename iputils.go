@@ -43,7 +43,7 @@ func ExpandCIDR(network string, removeNetAndBroadcast bool) ([]string, error) {
 		ips = append(ips, ip.String())
 	}
 
-	if removeNetAndBroadcast {
+	if removeNetAndBroadcast && len(ips) > 1 {
 		ips = ips[1 : len(ips)-1]
 	}
 
