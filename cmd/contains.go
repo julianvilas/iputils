@@ -12,7 +12,7 @@ var containsCmd = &cobra.Command{
 	Use:   "contains <ip> <network>...",
 	Short: "Checks if the IP address is contained in one of the networks provided",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if len(args) != 2 {
+		if len(args) < 2 {
 			return fmt.Errorf("incorrect number of args, want 2, got %v", len(args))
 		}
 
