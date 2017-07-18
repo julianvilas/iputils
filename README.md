@@ -1,6 +1,6 @@
 # iputils
 
-Is a Go library to check whether an IP address pertains to a list of IP networks. 
+A Go package to perform operations over IP addresses and network ranges, using strings. 
 
 ### Installation
 
@@ -25,23 +25,28 @@ func main() {
 }
 ```
 
-A naive command is also given that allows using the lib from the command-line.
+A naive command is also given that allows using the package from the command-line.
 ```bash
 $ iputils
-Usage: iputils [flags] ip network1 [network2 ...]
+A command to perform operations over IP addresses and network ranges
 
-$ iputils 192.168.1.1 192.168.1.0/24
+Usage:
+  iputils [command]
+
+Available Commands:
+  contains    Checks if the IP address is contained in one of the networks provided
+  expand      Prints all the IPs contained in the network provided
+  help        Help about any command
+
+Flags:
+  -h, --help   help for iputils
+
+Use "iputils [command] --help" for more information about a command.
+
+$ iputils contains 192.168.1.32 192.168.1.0/24
 192.168.1.0/24
 
-$ iputils 192.168.1.1 192.168.2.0/24
-
-$ iputils 192.168.1.1 192.168.3.0/24 192.168.1.0/24
-192.168.1.0/24
-
-$ cat /tmp/networks
-192.168.1.0/24
-192.168.2.0/24
-
-$ iputils 192.168.1.0 $(cat /tmp/networks | xargs)
-192.168.1.0/24
+$ iputils expand 192.168.1.0/31
+192.168.1.0
+192.168.1.1
 ```
